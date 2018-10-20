@@ -4,9 +4,7 @@ from collections import OrderedDict
 
 
 class EventHandler(Base):
-    class EventHandler(Base):
-
-        __tablename__ = 'events'
+    __tablename__ = 'events'
     id = Column(Integer, primary_key=True)
     name = Column(String(70))
     date = Column(String(50))
