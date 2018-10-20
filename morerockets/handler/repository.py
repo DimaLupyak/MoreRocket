@@ -1,4 +1,4 @@
-from morerockets.handler import db_session
+from morerockets.handler.database import db_session
 from morerockets.models import User
 
 
