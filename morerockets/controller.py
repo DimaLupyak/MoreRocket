@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from morerockets.handler.database import init_db
 from morerockets.handler import mail as mailHandler, events as eventHandler, user as userHandler
 from morerockets import app
-
+application = app
 init_db()
 
 
