@@ -1,6 +1,6 @@
 import urllib.request
 import json 
-from models import EventHandler
+from morerockets.models import EventHandler
 URL = "https://spacelaunchnow.me/3.2.0/launch/upcoming/?format=json"
 
 def getItems():

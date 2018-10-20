@@ -22,10 +22,6 @@ def subsribe():
 def getAllUsers():
     return jsonify(userHandler.getAllUsers())
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
-
 @app.route("/api/mail")
 def sendMail():
     return mailHandler.sendOnAllMails()
