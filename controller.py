@@ -1,5 +1,8 @@
-from flask import Flask
-from flask import jsonify
+from flask import Flask, jsonify, request
+from handler.database import db_session
+from handler.database import init_db
+
+init_db()
 
 app = Flask(__name__)
 import handler.eventsHandler as handler
@@ -8,3 +11,15 @@ import handler.eventsHandler as handler
 @app.route("/api/events")
 def getEvent():
     return jsonify(handler.getEvents())
+
+
+@app.route("/api/subscribe")
+def subsribe():
+    email = request.args['email']
+    handler.subscribe(email)
+    return "OK"
+
+
+@app.teardown_appcontext
+def shutdown_session(exception=None):
+    db_session.remove()

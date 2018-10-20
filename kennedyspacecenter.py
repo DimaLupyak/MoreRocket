@@ -1,6 +1,6 @@
 import requests
 import json
-import main
+import models
 
 kennedyUrl = 'https://www.kennedyspacecenter.com'
 baseUrl = kennedyUrl + '/api/'
@@ -36,8 +36,8 @@ def kennedyArrToEventHandlerArr(eventList):
 
 
 def kannadyToEventHandler(event):
-    return main.EventHandler(event['title'], event['start'], event['eventShortSummary'], event['location'], None,
-                             kennedyUrl + event['url'])
+    return models.EventHandler(event['title'], event['start'], event['eventShortSummary'], event['location'], None,
+                               kennedyUrl + event['url'])
 
 
 result = requestEvents("", "")
