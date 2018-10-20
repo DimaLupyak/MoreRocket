@@ -1,4 +1,4 @@
-from models import EventHandler
+from morerockets.models import EventHandler
 
 
 def getEvents():

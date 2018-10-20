@@ -1,12 +1,9 @@
 from flask import Flask, jsonify, request
-from handler.database import db_session
-from handler.database import init_db
-import handler.events as eventHandler
-import handler.user as userHandler
+from morerockets.handler.database import init_db
+from morerockets.handler import mail as mailHandler, events as eventHandler, user as userHandler
+from morerockets import app
 
 init_db()
-
-app = Flask(__name__)
 
 
 @app.route("/api/events")
@@ -26,9 +23,10 @@ def getAllUsers():
     return jsonify(userHandler.getAllUsers())
 
 
-@app.teardown_appcontext
-def shutdown_session(exception=None):
-    db_session.remove()
+@app.route("/api/mail")
+def sendMail():
+    return mailHandler.sendOnAllMails()
+
 
 @app.route("/data")
 def data():
