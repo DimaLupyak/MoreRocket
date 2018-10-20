@@ -4,6 +4,7 @@ from morerockets.models import EventHandler
 
 def getEvents():
     eventsList = sp_adapter.getItems()    
+
     return [e.serialize() for e in eventsList]
 
 def saveEvents():
