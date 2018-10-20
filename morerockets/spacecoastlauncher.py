@@ -24,7 +24,7 @@ def object_generator(dates,vehicles,missions,sites,times):
 		object.live = None
 		yield object
 			
-if __name__ == "__main__":
+def get_output():
 	data = eh(name='Test',date=None,desc=None,site=None,company=None,latitude=None,longitude=None,live=None)
 	r = requests.get("https://spacecoastlaunches.com/blog/launch-list/")
 	soup = bs(r.content,'html.parser')
