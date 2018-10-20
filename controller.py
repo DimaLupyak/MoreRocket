@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request
 from handler.database import db_session
 from handler.database import init_db
+import json
 
 init_db()
 
@@ -18,6 +19,11 @@ def subsribe():
     email = request.args['email']
     handler.subscribe(email)
     return "OK"
+
+
+@app.route("/api/user")
+def getAllUsers():
+    return jsonify(handler.getAllUsers())
 
 
 @app.teardown_appcontext

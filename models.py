@@ -1,5 +1,6 @@
 from sqlalchemy import Column, Integer, String
 from handler.database import Base
+from collections import OrderedDict
 
 
 class EventHandler(Base):
@@ -22,7 +23,16 @@ class EventHandler(Base):
 
 class User(Base):
     __tablename__ = 'user'
-    email = Column(String(100))
+    email = Column(String(100), primary_key=True)
+
+    def asdict(self):
+        result = OrderedDict()
+        for key in self.__mapper__.c.keys():
+            if getattr(self, key) is not None:
+                result[key] = str(getattr(self, key))
+            else:
+                result[key] = getattr(self, key)
+        return result
 
     def __init__(self, email):
         self.email = email

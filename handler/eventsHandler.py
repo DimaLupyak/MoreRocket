@@ -21,3 +21,11 @@ def subscribe(email):
         return
 
     repository.saveUser(User(email))
+
+
+def getAllUsers():
+    models = []
+    users = repository.getAllUsers()
+    for user in users:
+        models.append(user.asdict())
+    return models
