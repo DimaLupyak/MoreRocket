@@ -1,5 +1,5 @@
 from models import EventHandler
-import spacelaunchnow_adapter
+from morerockets.models import EventHandler
 
 def getEvents():
     eventsList = pacelaunchnow_adapter.getItems()

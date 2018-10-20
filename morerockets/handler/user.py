@@ -1,5 +1,5 @@
-import handler.repository as repository
-from models import User
+from morerockets import handler as repository
+from morerockets.models import User
 import re
 
 email_pattern = '[^@]+@[^@]+\.[^@]+'

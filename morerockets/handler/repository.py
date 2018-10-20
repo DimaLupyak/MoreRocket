@@ -1,5 +1,5 @@
-from handler.database import db_session
-from models import User
+from morerockets.handler import db_session
+from morerockets.models import User
 
 
 def saveUser(user):

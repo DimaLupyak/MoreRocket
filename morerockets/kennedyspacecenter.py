@@ -1,6 +1,6 @@
 import requests
 import json
-import models
+from morerockets import models
 
 kennedyUrl = 'https://www.kennedyspacecenter.com'
 baseUrl = kennedyUrl + '/api/'
