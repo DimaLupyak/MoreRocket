@@ -6,7 +6,7 @@ import json
 init_db()
 
 app = Flask(__name__)
-import handler.eventsHandler as handler
+import handler.events as handler
 
 
 @app.route("/api/events")
