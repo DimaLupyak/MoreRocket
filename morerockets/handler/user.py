@@ -1,4 +1,4 @@
-from morerockets import handler as repository
+from morerockets.handler import repository
 from morerockets.models import User
 import re
 
