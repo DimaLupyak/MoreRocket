@@ -5,6 +5,6 @@ app = Flask(__name__)
 import handler.eventsHandler as handler
 
 
-@app.route("/api")
+@app.route("/api/events")
 def getEvent():
     return jsonify(handler.getEvents())
