@@ -2,8 +2,12 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 from morerockets import app
+import platform
 
-engine = create_engine('sqlite:///E:\\tmp.db', convert_unicode=True)
+if (platform.system() == 'Linux'):
+    engine = create_engine('sqlite:////tmp/test.db', convert_unicode=True)
+else:
+    engine = create_engine('sqlite:///E:\\tmp.db', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
