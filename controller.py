@@ -29,8 +29,3 @@ def getAllUsers():
 @app.teardown_appcontext
 def shutdown_session(exception=None):
     db_session.remove()
-
-@app.route("/data")
-def data():
-    data = spacelaunchnow_adapter.getItems()
-    return jsonify(results=[d.serialize() for d in data])

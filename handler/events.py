@@ -1,11 +1,8 @@
 from models import EventHandler
-
+import spacelaunchnow_adapter
 
 def getEvents():
-    eventsList = []
-    eventsList.append(EventHandler("name", "some date", "this is some description", "site some", "some company",
-                                   "http://someurl.com").__dict__)
-    eventsList.append(EventHandler("name", "some date", "this is some description", "site some", "some company",
-                                   "http://someurl.com").__dict__)
+    eventsList = pacelaunchnow_adapter.getItems()
+    
     # insert you event grabber here
-    return eventsList
+    return [e.serialize() for e in eventsList]
