@@ -26,3 +26,13 @@ def getAllUsers():
 def sendMail():
     return mailHandler.sendOnAllMails()
 
+@app.route("/api/saveEvents")
+def saveEvents():
+    eventHandler.saveEvents()
+    return "saved"
+
+
+@app.route("/api/eventDb")
+def sendEventDb():
+    return eventHandler.getEventFromDb()
+

@@ -10,6 +10,9 @@ class EventHandler(Base):
     date = Column(String(50))
     desc = Column(String(250))
     site = Column(String(100))
+    company = Column(String(100))
+    latitude = Column(String(100))
+    longitude = Column(String(100))
     live = Column(String(100))
 
     def __init__(self, name, date, desc, site, company, latitude, longitude, live):
