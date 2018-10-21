@@ -6,12 +6,12 @@ CORS(app)
 
 import morerockets.handler
 
-from morerockets.handler.events import getEvents
+from morerockets.handler.events import updateEvents
 from apscheduler.schedulers.background import BackgroundScheduler
 import atexit
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=getEvents, trigger="interval", minutes=60)
+scheduler.add_job(func=updateEvents, trigger="interval", hours=1)
 scheduler.start()
 
 # Shut down the scheduler when exiting the app

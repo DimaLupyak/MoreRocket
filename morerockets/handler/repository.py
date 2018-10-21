@@ -11,8 +11,13 @@ def saveEvent(event: EventHandler):
     db_session.add(event)
     db_session.commit()
 
-def getEvent():
-    return EventHandler.query.get(1)
+def clearEvents():
+    db_session.query(EventHandler).delete()
+    db_session.commit()
+
+
+def getFirstEvent():
+    return EventHandler.query.first()
 
 def getAllUsers():
     return User.query.all()

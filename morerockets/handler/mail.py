@@ -14,8 +14,9 @@ app.config.update(dict(
 mail = Mail(app)
 
 
-def sendOnAllMails():
-    msg = Message("Hello",
+def sendOnAllMails(subj, msg, rec):
+    msg = Message(subject=subj,body=msg,
                   sender="nasamorerockets@gmail.com",
-                  recipients=["worldofvadim@gmail.com"])
+                  recipients=rec)
     mail.send(msg)
+    return "Sent"

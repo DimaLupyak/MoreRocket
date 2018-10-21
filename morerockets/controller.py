@@ -24,15 +24,4 @@ def getAllUsers():
 
 @app.route("/api/mail")
 def sendMail():
-    return mailHandler.sendOnAllMails()
-
-@app.route("/api/saveEvents")
-def saveEvents():
-    eventHandler.saveEvents()
-    return "saved"
-
-
-@app.route("/api/eventDb")
-def sendEventDb():
-    return eventHandler.getEventFromDb()
-
+    return mailHandler.sendOnAllMails("Title", "Hello", ["dima.lupyak@gmail.com"])

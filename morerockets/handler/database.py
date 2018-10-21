@@ -7,7 +7,7 @@ import platform
 if (platform.system() == 'Linux'):
     engine = create_engine('sqlite:////tmp/test.db', convert_unicode=True)
 else:
-    engine = create_engine('sqlite:///E:\\tmp2.db', convert_unicode=True)
+    engine = create_engine('sqlite:///E:\\tmp.db', convert_unicode=True)
 db_session = scoped_session(sessionmaker(autocommit=False,
                                          autoflush=False,
                                          bind=engine))
