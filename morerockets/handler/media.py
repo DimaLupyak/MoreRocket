@@ -24,7 +24,7 @@ def getLinksFor(missionId):
 
 
 def getLaunches():
-    launches = json.loads(requests.get(baseUrl + '?limit=100').text)['launches']
+    launches = json.loads(requests.get(baseUrl + '?limit=1500').text)['launches']
     missions = {}
     for item in launches:
         missions[item['mission']] = item['id']
