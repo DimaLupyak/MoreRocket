@@ -15,7 +15,7 @@ class EventHandler(Base):
     longitude = Column(String(100))
     live = Column(String(100))
 
-    def __init__(self, name, date, desc, site, company, latitude, longitude, live):
+    def __init__(self, name, date, desc, site, company, latitude, longitude, live, mission):
         self.name = name
         self.date = date
         self.desc = desc
@@ -23,7 +23,8 @@ class EventHandler(Base):
         self.company = company
         self.latitude = latitude
         self.longitude = longitude
-        self.live = live
+        self.live = live,
+        self.mission = mission
 
     def __str__(self):
         return ", ".join((

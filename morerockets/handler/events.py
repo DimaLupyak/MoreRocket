@@ -27,3 +27,12 @@ def updateEvents():
             msg = f"{first_event.name} will launch in {diffInHours} Hours. {first_event.desc}. For more details you can visit http://nasa.spaceappchallenge.s3-website-us-east-1.amazonaws.com/"
             mail.sendOnAllMails(sbj, msg, recipients)
     
+
+
+from geopy.geocoders import Nominatim
+
+geolocator = Nominatim(user_agent='morerockets')
+
+def getCountry(latitude, longitude):
+    return geolocator.reverse(str(latitude) + ", " + str(longitude)).raw['address']['country']
+
