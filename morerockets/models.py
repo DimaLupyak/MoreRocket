@@ -40,8 +40,19 @@ class EventHandler(Base):
             str(self.mission)))
 
     def serialize(self):
-        return {'name': self.name, 'date': self.date, 'desc': self.desc, 'site': self.site, 'company': self.company,
-                'latitude': self.latitude, 'longitude': self.longitude, 'live': self.live, 'mission': self.mission}
+        return {
+            'host': self.site, 
+            'latitude': self.latitude, 
+            'longitude': self.longitude,
+            'missions': {
+                'rocket': self.name,                
+                'date': self.date,
+                'company': self.company,  
+                'desc': self.desc, 
+                'live': self.live, 
+                'mission': self.mission
+                }
+            }
 
 
 class User(Base):
