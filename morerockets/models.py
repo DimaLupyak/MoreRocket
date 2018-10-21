@@ -14,6 +14,7 @@ class EventHandler(Base):
     latitude = Column(String(100))
     longitude = Column(String(100))
     live = Column(String(100))
+    mission = Column(String(100))
 
     def __init__(self, name, date, desc, site, company, latitude, longitude, live, mission):
         self.name = name
@@ -35,11 +36,12 @@ class EventHandler(Base):
             str(self.company),
             str(self.latitude),
             str(self.longitude),
-            str(self.live)))
+            str(self.live),
+            str(self.mission)))
 
     def serialize(self):
         return {'name': self.name, 'date': self.date, 'desc': self.desc, 'site': self.site, 'company': self.company,
-                'latitude': self.latitude, 'longitude': self.longitude, 'live': self.live}
+                'latitude': self.latitude, 'longitude': self.longitude, 'live': self.live, 'mission': self.mission}
 
 
 class User(Base):

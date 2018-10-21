@@ -37,11 +37,12 @@ def getItems():
                     name = name,
                     date = date,
                     desc = desc,
-                    company = mission,
+                    company = company,
                     site = site,
                     latitude = latitude,
                     longitude = longitude,
-                    live = None
+                    live = None,
+                    mission = mission
                 )
             )
     return output
