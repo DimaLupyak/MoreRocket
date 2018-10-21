@@ -11,6 +11,11 @@ def subscribe(email):
 
     repository.saveUser(User(email))
 
+def unsubscribe(email):
+    if not re.match(email_pattern, email):
+        return
+
+    repository.removeUser(User(email))
 
 def getAllUsers():
     models = []

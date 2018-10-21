@@ -14,9 +14,11 @@ app.config.update(dict(
 mail = Mail(app)
 
 
-def sendOnAllMails(subj, msg, rec):
-    msg = Message(subject=subj,body=msg,
-                  sender="nasamorerockets@gmail.com",
-                  recipients=rec)
-    mail.send(msg)
+def sendOnAllMails(subj, msg_text, rec):
+    for r in rec:
+        msg_text += f"<p>To unsubscribe use the <a href=\"http://morerocket.us-east-1.elasticbeanstalk.com/api/unsubscribe?email={r}\">link</a></p>"
+        msg = Message(subject=subj,html=msg_text,
+                    sender="nasamorerockets@gmail.com",
+                    recipients=[r])
+        mail.send(msg)
     return "Sent"

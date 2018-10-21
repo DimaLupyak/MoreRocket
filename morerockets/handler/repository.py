@@ -5,8 +5,19 @@ from morerockets.models import User
 from morerockets.models import EventHandler
 
 def saveUser(user: User):
-    db_session.add(user)
-    db_session.commit()
+    try:
+        db_session.add(user)
+        db_session.commit()
+    except: pass    
+
+def removeUser(user: User):
+    try:
+        User.query.filter(User.email == user.email).delete()
+        db_session.commit()
+    except: pass   
+
+def getAllUsers():
+    return User.query.all()
 
 def saveEvent(event: EventHandler):
     media.setLinksForEvent(event)
@@ -23,5 +34,3 @@ def getAllEvent():
 def getFirstEvent():
     return EventHandler.query.first()
 
-def getAllUsers():
-    return User.query.all()

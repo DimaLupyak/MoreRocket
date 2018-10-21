@@ -15,7 +15,13 @@ def getEvent():
 def subsribe():
     email = request.args['email']
     userHandler.subscribe(email)
-    return "OK"
+    return "Subscribed"
+
+@app.route("/api/unsubscribe")
+def unsubscribe():
+    email = request.args['email']
+    userHandler.unsubscribe(email)
+    return "Unsubscribed"
 
 
 @app.route("/api/user")
