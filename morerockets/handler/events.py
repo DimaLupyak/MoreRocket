@@ -3,17 +3,25 @@ from morerockets.handler import repository
 from morerockets.models import EventHandler
 from datetime import datetime
 import morerockets.handler.mail as mail
+import morerockets.handler.media as media
 from morerockets import app
 
 def getEvents():
     eventsList = sp_adapter.getItems()
     return [e.serialize() for e in eventsList]
 
+def getDbEvents():
+    eventsList = repository.getAllEvent()
+    if len(eventsList) == 0:
+        updateEvents()
+        eventsList = repository.getAllEvent()
+    return [e.serialize() for e in eventsList]
+
 def updateEvents():
     with app.app_context():
         repository.clearEvents()
         eventsList = sp_adapter.getItems()
-        for e in eventsList:        
+        for e in eventsList:            
             repository.saveEvent(e)
         first_event = repository.getFirstEvent()
         event_datetime = datetime.strptime(first_event.date, '%Y-%m-%dT%H:%M:%SZ')

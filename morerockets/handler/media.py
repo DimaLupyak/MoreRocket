@@ -6,9 +6,11 @@ baseUrl = 'https://api.rocket.watch/launch'
 
 def setLinksForEvent(event):
     missionsDictionary = getLaunches()
+    result = ""
     if (event.mission in missionsDictionary):
         links = getLinksFor(missionsDictionary[event.mission])
-        event.live = ",".join(links)
+        result = ",".join(links)
+    event.live = result
 
 
 def getLinksFor(missionId):

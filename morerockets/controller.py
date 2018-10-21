@@ -8,7 +8,7 @@ init_db()
 
 @app.route("/api/events")
 def getEvent():
-    return jsonify(eventHandler.getEvents())
+    return jsonify(eventHandler.getDbEvents())
 
 
 @app.route("/api/subscribe")
