@@ -16,6 +16,8 @@ class EventHandler(Base):
     live = Column(String(100))
     mission = Column(String(100))
     ltype = Column(String(50))
+    twitter = Column(String(70))
+    facebook = Column(String(70))
 
     def __init__(self, name, date, desc, site, company, latitude, longitude, live, mission, ltype):
         self.name = name
@@ -40,6 +42,8 @@ class EventHandler(Base):
             str(self.latitude),
             str(self.longitude),
             str(self.live),
+            str(self.twitter),
+            str(self.facebook),
             str(self.mission)))
 
     def serialize(self):
@@ -54,6 +58,8 @@ class EventHandler(Base):
                 'company': self.company,
                 'desc': self.desc,
                 'live': self.live,
+                'twitter': self.twitter,
+                'facebook': self.facebook,
                 'mission': self.mission}
         }
 
